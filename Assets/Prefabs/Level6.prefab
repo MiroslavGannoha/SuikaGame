@@ -148,3 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01079351a9e34c4408788ef6d9d103cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upperShape: {fileID: 2904826196304563279, guid: 337a75854061707409f41f8acf77f0ea,
+    type: 3}
+  isUpgrading: 0

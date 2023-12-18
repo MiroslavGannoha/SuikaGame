@@ -1,16 +1,10 @@
-using UnityEngine;
 
-public class ShapeLevel2 : MonoBehaviour
+
+public class ShapeLevel2 : ShapeBaseController
 {
-    // Start is called before the first frame update
-    void Start()
+    public override ShapeTypes shapeType
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        get;
+        set;
+    } = ShapeTypes.ShapeLevel2;
 }
