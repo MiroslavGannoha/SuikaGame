@@ -21,7 +21,7 @@ public abstract class ShapeBaseController : MonoBehaviour
         get;
         set;
     }
-
+    [SerializeField]
     private GameObject upperShape;
 
     public bool isUpgrading = false;
@@ -40,12 +40,15 @@ public abstract class ShapeBaseController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         ShapeBaseController controller = collision.gameObject.GetComponent<ShapeBaseController>();
-        if (collision.gameObject.CompareTag("Shape") && controller && shapeType == controller.shapeType && controller.isUpgrading == false)
+        if (collision.gameObject.CompareTag("Shape") && controller && shapeType == controller.shapeType)
         {
             Debug.Log("Shape collided with the same level shape");
             Debug.Log(controller.shapeType);
-            mergeShapes();
-
+            if (!controller.isUpgrading)
+            {
+                mergeShapes();
+            }
+            Destroy(gameObject);
         }
     }
 
@@ -53,6 +56,5 @@ public abstract class ShapeBaseController : MonoBehaviour
     {
         isUpgrading = true;
         GameManager.Instance.SpawnShape(upperShape, transform.position);
-
     }
 }
