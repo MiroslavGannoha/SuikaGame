@@ -25,7 +25,7 @@ public class HoverAreaController : MonoBehaviour
         gameManager.SetActiveShapePosition(worldMousePos);
     }
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
         gameManager.DropShape();
     }
