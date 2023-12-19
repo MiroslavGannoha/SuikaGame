@@ -7,4 +7,10 @@ public class ShapeLevel9 : ShapeBaseController
         get;
         set;
     } = ShapeTypes.ShapeLevel9;
+
+    public override int worth
+    {
+        get;
+        set;
+    } = 90;
 }

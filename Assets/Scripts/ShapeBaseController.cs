@@ -21,6 +21,13 @@ public abstract class ShapeBaseController : MonoBehaviour
         get;
         set;
     }
+
+    public abstract int worth
+    {
+        get;
+        set;
+    }
+
     [SerializeField]
     private GameObject upperShape;
 
@@ -55,6 +62,7 @@ public abstract class ShapeBaseController : MonoBehaviour
     private void mergeShapes()
     {
         isUpgrading = true;
-        GameManager.Instance.SpawnShape(upperShape, transform.position);
+        var mergedShape = GameManager.Instance.SpawnShape(upperShape, transform.position);
+        mergedShape.GetComponent<Rigidbody>().isKinematic = false;
     }
 }
