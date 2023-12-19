@@ -148,8 +148,8 @@ Transform:
   m_GameObject: {fileID: 195292117}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -5.1669, y: 3.5613, z: -2}
-  m_LocalScale: {x: 1.3604091, y: 1, z: 0.8666263}
+  m_LocalPosition: {x: -5.1669, y: 2.7232, z: -2}
+  m_LocalScale: {x: 1.5280117, y: 1, z: 0.8666263}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 511273348}
@@ -531,6 +531,7 @@ MonoBehaviour:
   - {fileID: 2188404494682482231, guid: 7048369bd852a4b4ba320e803e90a043, type: 3}
   - {fileID: 5505390916518271462, guid: 85886f215e86bf043b77e85f1a206bd7, type: 3}
   hoverArea: {fileID: 195292117}
+  shapeSpawnDelay: 2
 --- !u!4 &484499255
 Transform:
   m_ObjectHideFlags: 0
