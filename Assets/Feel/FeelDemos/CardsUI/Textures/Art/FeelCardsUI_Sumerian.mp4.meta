@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 735f8dd89b3d74746be95dc9fbe7471f
+AssetOrigin:
+  serializedVersion: 1
+  productId: 183370
+  packageName: Feel
+  packageVersion: 3.15
+  assetPath: Assets/Feel/FeelDemos/CardsUI/Textures/Art/FeelCardsUI_Sumerian.mp4
+  uploadId: 621683
 VideoClipImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -16,10 +23,3 @@ VideoClipImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 183370
-  packageName: Feel
-  packageVersion: 3.15
-  assetPath: Assets/Feel/FeelDemos/CardsUI/Textures/Art/FeelCardsUI_Sumerian.mp4
-  uploadId: 621683
