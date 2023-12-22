@@ -64,5 +64,7 @@ public abstract class ShapeBaseController : MonoBehaviour
         isUpgrading = true;
         var mergedShape = GameManager.Instance.SpawnShape(upperShape, transform.position);
         mergedShape.GetComponent<Rigidbody>().isKinematic = false;
+        mergedShape.GetComponent<Rigidbody>().AddForce(Vector3.up * 100);
+        GameManager.Instance.AddPoints(worth);
     }
 }

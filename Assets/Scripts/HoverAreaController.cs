@@ -21,7 +21,7 @@ public class HoverAreaController : MonoBehaviour
     {
         Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         worldMousePos.z = 0;
-        worldMousePos.y = 7.8f;
+        worldMousePos.y = 6f;
         gameManager.SetActiveShapePosition(worldMousePos);
     }
 
