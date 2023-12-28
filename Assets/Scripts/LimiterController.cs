@@ -4,10 +4,9 @@ public class LimiterController : MonoBehaviour
 {
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Collision");
         if (col.gameObject.CompareTag("Shape"))
         {
-        Debug.Log("Shape");
+            // POLYMORPHISM
             var controller = col.gameObject.GetComponent<ShapeBaseController>();
             if (controller.IsInGame)
             {

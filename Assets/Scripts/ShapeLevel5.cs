@@ -1,14 +1,15 @@
 
 
+// INHERITANCE
 public class ShapeLevel5 : ShapeBaseController
 {
-    public override ShapeTypes shapeType
+    protected override ShapeTypes shapeType
     {
         get;
         set;
     } = ShapeTypes.ShapeLevel5;
 
-    public override int worth
+    protected override int worth
     {
         get;
         set;

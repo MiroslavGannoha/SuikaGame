@@ -13,20 +13,23 @@ public enum ShapeTypes
     ShapeLevel9,
 }
 
+// ABSTRACTION
 public abstract class ShapeBaseController : MonoBehaviour
 {
 
     public bool IsInGame = false;
 
-    public ParticleSystem PopVFX;
+    [SerializeField]
+    private ParticleSystem PopVFX;
 
-    public abstract ShapeTypes shapeType
+    // ABSTRACTION
+    protected abstract ShapeTypes shapeType
     {
         get;
         set;
     }
-
-    public abstract int worth
+    // ABSTRACTION
+    protected abstract int worth
     {
         get;
         set;
