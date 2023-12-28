@@ -16,6 +16,10 @@ public enum ShapeTypes
 public abstract class ShapeBaseController : MonoBehaviour
 {
 
+    public bool IsInGame = false;
+
+    public ParticleSystem PopVFX;
+
     public abstract ShapeTypes shapeType
     {
         get;
@@ -49,22 +53,33 @@ public abstract class ShapeBaseController : MonoBehaviour
         ShapeBaseController controller = collision.gameObject.GetComponent<ShapeBaseController>();
         if (collision.gameObject.CompareTag("Shape") && controller && shapeType == controller.shapeType)
         {
-            Debug.Log("Shape collided with the same level shape");
-            Debug.Log(controller.shapeType);
-            if (!controller.isUpgrading)
+            if (!controller.isUpgrading && !isUpgrading)
             {
-                mergeShapes();
+                isUpgrading = true;
+                controller.isUpgrading = true;
+                mergeShapes(collision.gameObject.transform.position);
             }
-            Destroy(gameObject);
+            if (isUpgrading)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
-    private void mergeShapes()
+    private void mergeShapes(Vector3 targetPosition)
     {
-        isUpgrading = true;
-        var mergedShape = GameManager.Instance.SpawnShape(upperShape, transform.position);
+        var mergedShape = GameManager.Instance.SpawnShape(upperShape, (transform.position + targetPosition) / 2);
         mergedShape.GetComponent<Rigidbody>().isKinematic = false;
         mergedShape.GetComponent<Rigidbody>().AddForce(Vector3.up * 100);
+        AudioManager.Instance.PopSound.Play();
+        PlayPopVFX();
+        mergedShape.GetComponent<ShapeBaseController>().PlayPopVFX();
+        mergedShape.GetComponent<ShapeBaseController>().IsInGame = true;
         GameManager.Instance.AddPoints(worth);
+    }
+
+    public void PlayPopVFX()
+    {
+        PopVFX.Play();
     }
 }

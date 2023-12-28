@@ -1,28 +1,32 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameState gameState;
     private GameObject nextShape = null;
     private GameObject currentActiveShape = null;
     [SerializeField] private GameObject[] shapesToSpawn;
     [SerializeField] private GameObject hoverArea;
-    [SerializeField] private float shapeSpawnDelay = 2f;
     private int points = 0;
     [SerializeField] private TextMeshProUGUI pointsText;
+
+    public GameObject gameScreen;
+    public GameObject gameOverScreen;
+    public TextMeshProUGUI ScoreText;
 
     public static GameManager Instance { get; private set; }
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        // if (Instance != null)
+        // {
+        //     Destroy(gameObject);
+        //     return;
+        // }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
@@ -71,7 +75,22 @@ public class GameManager : MonoBehaviour
         {
             currentActiveShape.GetComponent<Rigidbody>().isKinematic = false;
             currentActiveShape = null;
-            Invoke("UpdateActiveShape", shapeSpawnDelay);
+            Invoke("UpdateActiveShape", gameState.shapeSpawnDelay);
         }
     }
+
+    public void EndGame()
+    {
+        Time.timeScale = 0;
+        gameScreen.SetActive(false);
+        gameOverScreen.SetActive(true);
+        ScoreText.text = points.ToString();
+        // Time.unscaledDeltaTime = 0;
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("StartScreen");
+    }
+
 }
