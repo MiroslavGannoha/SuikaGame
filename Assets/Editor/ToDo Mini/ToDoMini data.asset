@@ -25,8 +25,8 @@ MonoBehaviour:
   - task: Three+ shapes merge
     isComplete: 1
   - task: OOP descriptions
-    isComplete: 0
+    isComplete: 1
   - task: Cleanup excessive data
-    isComplete: 0
+    isComplete: 1
   - task: Restart bug
     isComplete: 1
