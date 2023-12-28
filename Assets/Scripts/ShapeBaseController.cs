@@ -73,7 +73,7 @@ public abstract class ShapeBaseController : MonoBehaviour
     {
         var mergedShape = GameManager.Instance.SpawnShape(upperShape, (transform.position + targetPosition) / 2);
         mergedShape.GetComponent<Rigidbody>().isKinematic = false;
-        mergedShape.GetComponent<Rigidbody>().AddForce(Vector3.up * 100);
+        mergedShape.GetComponent<Rigidbody>().AddForce(Vector3.up * 10f);
         AudioManager.Instance.PopSound.Play();
         PlayPopVFX();
         mergedShape.GetComponent<ShapeBaseController>().PlayPopVFX();
