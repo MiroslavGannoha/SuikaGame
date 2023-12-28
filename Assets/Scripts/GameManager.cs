@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private GameObject currentActiveShape = null;
     [SerializeField] private GameObject[] shapesToSpawn;
     [SerializeField] private GameObject hoverArea;
+    public float TopPosition = 7f;
     private int points = 0;
     [SerializeField] private TextMeshProUGUI pointsText;
 
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     public GameObject SpawnNewShape()
     {
         int randomIndex = Random.Range(0, shapesToSpawn.Length);
-        return SpawnShape(shapesToSpawn[randomIndex], new Vector3(1, 6, 0));
+        return SpawnShape(shapesToSpawn[randomIndex], new Vector3(1, TopPosition, 0));
     }
 
     public void AddPoints(int pointsToAdd)
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         currentActiveShape = nextShape;
         nextShape = null;
-        currentActiveShape.transform.position = new Vector3(-5.2f, 6, 0);
+        currentActiveShape.transform.position = new Vector3(-5.2f, TopPosition, 0);
         nextShape = SpawnNewShape();
     }
 
